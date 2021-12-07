@@ -1,0 +1,13 @@
+.root{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title{
+    font-size: 1.5rem;
+    color: grey;
+}
+.value{
+    font-size: 20rem;
+    color: black;
+}

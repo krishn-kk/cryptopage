@@ -1,0 +1,11 @@
+.stats_grid{
+    height: 12vh;
+    /* background-color: red; */
+}
+.crypto_header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    
+}
