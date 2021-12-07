@@ -1,0 +1,11 @@
+.search-crypto{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 1rem;
+}
+.search ::placeholder{
+    /* border: 1px solid red;
+    border-radius: 10px; */
+    text-align: center;
+}

@@ -7,6 +7,7 @@ import "./Home.css";
 import millify from "millify";
 import Crypto from "./Crypto";
 import CryptoCard from "../UtilsComponents/CryptoCard";
+import { Link } from "react-router-dom";
 
 function Home(props) {
     const [data, setData] = useState({});
@@ -67,7 +68,9 @@ function Home(props) {
                         Top 10 Cryptocurrencies in the world
                     </Typography>
                 </div>
-                <div>Show More</div>
+                <Link to="/crypto">
+                    <div>Show More</div>
+                </Link>
             </div>
             <Crypto count={10} />
             {/* <CryptoCard /> */}

@@ -8,6 +8,7 @@ import {
 } from "react-icons/bs";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import Typography from "@material-ui/core";
+import { Link } from "react-router-dom";
 function NavBar(props) {
     const [color, setColor] = useState(0);
     const onClickSetColor = (index) => {
@@ -23,51 +24,59 @@ function NavBar(props) {
             </div>
             <div className="break"></div>
             <div className="menu">
-                <div
-                    className={`menu_item ${
-                        color == 0 ? "menu_itembackground" : ""
-                    } `}
-                    onClick={() => onClickSetColor(0)}
-                >
-                    <span className="menu_image">
-                        <AiFillHome />
-                    </span>
+                <Link to="/">
+                    <div
+                        className={`menu_item ${
+                            color == 0 ? "menu_itembackground" : ""
+                        } `}
+                        onClick={() => onClickSetColor(0)}
+                    >
+                        <span className="menu_image">
+                            <AiFillHome />
+                        </span>
 
-                    <span className="menu_title">Home</span>
-                </div>
-                <div
-                    className={`menu_item ${
-                        color == 1 ? "menu_itembackground" : ""
-                    } `}
-                    onClick={() => onClickSetColor(1)}
-                >
-                    <span className="menu_image">
-                        <BsCurrencyBitcoin />
-                    </span>
-                    <span className="menu_title">Currencies</span>
-                </div>
-                <div
-                    className={`menu_item ${
-                        color == 2 ? "menu_itembackground" : ""
-                    } `}
-                    onClick={() => onClickSetColor(2)}
-                >
-                    <span className="menu_image">
-                        <BsCurrencyExchange />
-                    </span>
-                    <span className="menu_title">Exchange</span>
-                </div>
-                <div
-                    className={`menu_item ${
-                        color === 3 ? "menu_itembackground" : ""
-                    } `}
-                    onClick={() => onClickSetColor(3)}
-                >
-                    <span className="menu_image">
-                        <BsLightbulb />
-                    </span>
-                    <span className="menu_title">News</span>
-                </div>
+                        <span className="menu_title">Home</span>
+                    </div>
+                </Link>
+                <Link to="/crypto">
+                    <div
+                        className={`menu_item ${
+                            color == 1 ? "menu_itembackground" : ""
+                        } `}
+                        onClick={() => onClickSetColor(1)}
+                    >
+                        <span className="menu_image">
+                            <BsCurrencyBitcoin />
+                        </span>
+                        <span className="menu_title">Currencies</span>
+                    </div>
+                </Link>
+                <Link to="/exchange">
+                    <div
+                        className={`menu_item ${
+                            color == 2 ? "menu_itembackground" : ""
+                        } `}
+                        onClick={() => onClickSetColor(2)}
+                    >
+                        <span className="menu_image">
+                            <BsCurrencyExchange />
+                        </span>
+                        <span className="menu_title">Exchange</span>
+                    </div>
+                </Link>
+                <Link to="/news">
+                    <div
+                        className={`menu_item ${
+                            color === 3 ? "menu_itembackground" : ""
+                        } `}
+                        onClick={() => onClickSetColor(3)}
+                    >
+                        <span className="menu_image">
+                            <BsLightbulb />
+                        </span>
+                        <span className="menu_title">News</span>
+                    </div>
+                </Link>
             </div>
         </div>
     );
