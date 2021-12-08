@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -10,62 +10,68 @@
     background-color: rgb(0, 21, 41);
     color: white;
 }
-.menu{
+.menu {
     line-height: 3;
     /* background-color: red; */
 }
-.menu_item{
+.menu_item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 19vw;
     height: 8vh;
-
 }
-.menu_image{
+.menu_image {
     margin-left: 1rem;
     /* width: 1vw; */
 }
-.menu_title{
+.menu_title {
     margin-left: 1rem;
     /* font-size: 1rem; */
     /* width: 2vw; */
 }
-.menu_item:hover{
+.menu_item:hover {
     /* background-color: grey; */
     color: red;
     transition: ease-in-out 0.2s;
 }
-.header{
+.header {
     display: flex;
     margin-top: 1vh;
     width: 19vw;
     height: 10vh;
 }
-.header_title{
+.header_title {
     margin-left: 2rem;
     font-size: 1rem;
 }
-.header_logo{
+.header_logo {
     margin-left: 1vw;
 }
-.break{
+.break {
     background-color: red;
     width: 19vw;
     height: 0.5vh;
 }
-.menu_itembackground{
+.menu_itembackground {
     background-color: grey;
 }
+.router_link {
+    color: white;
+    text-decoration: none;
+}
 @media all and (max-width: 700px) {
-    .menu_title,.header_title {
-      display: none;
-      width: 0vw;
-      
-    }
-    .navbar,.break,.menu_title,.menu,.menu_item{
+    .menu_title,
+    .header_title {
         display: none;
         width: 0vw;
     }
-  }
-  
+    .navbar,
+    .break,
+    .menu_title,
+    .menu,
+    .menu_item {
+        display: none;
+        width: 0vw;
+    }
+}

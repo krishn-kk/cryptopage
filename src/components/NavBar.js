@@ -20,11 +20,11 @@ function NavBar(props) {
                 <span className="header_logo">
                     <FaMoneyCheckAlt size={45} />
                 </span>
-                <span className="header_title">CRYPTOCHECK</span>
+                <span className="header_title">@CrYpInFo</span>
             </div>
             <div className="break"></div>
             <div className="menu">
-                <Link to="/">
+                <Link to="/" className="router_link">
                     <div
                         className={`menu_item ${
                             color == 0 ? "menu_itembackground" : ""
@@ -38,7 +38,7 @@ function NavBar(props) {
                         <span className="menu_title">Home</span>
                     </div>
                 </Link>
-                <Link to="/crypto">
+                <Link to="/crypto" className="router_link">
                     <div
                         className={`menu_item ${
                             color == 1 ? "menu_itembackground" : ""
@@ -51,7 +51,7 @@ function NavBar(props) {
                         <span className="menu_title">Currencies</span>
                     </div>
                 </Link>
-                <Link to="/exchange">
+                <Link to="/exchange" className="router_link">
                     <div
                         className={`menu_item ${
                             color == 2 ? "menu_itembackground" : ""
@@ -64,7 +64,7 @@ function NavBar(props) {
                         <span className="menu_title">Exchange</span>
                     </div>
                 </Link>
-                <Link to="/news">
+                <Link to="/news" className="router_link">
                     <div
                         className={`menu_item ${
                             color === 3 ? "menu_itembackground" : ""

@@ -8,12 +8,14 @@ import millify from "millify";
 import Crypto from "./Crypto";
 import CryptoCard from "../UtilsComponents/CryptoCard";
 import { Link } from "react-router-dom";
+import News from "./News";
+import Spinner from "../UtilsComponents/Spinner";
 
 function Home(props) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        let url = createUrl(baseUrl + "/stats");
+        let url = createUrl(baseUrl + "/stats", "crypto");
         console.log(url);
         axios.request(url).then((response) => {
             console.log(response);
@@ -22,7 +24,7 @@ function Home(props) {
         });
     }, []);
     console.log(data);
-    if (loading) return "....Still Loading";
+    if (loading) return <Spinner />;
     return (
         <div style={{ display: "flex", flexDirection: "column" }}>
             <Grid container spacing={1} align="left" style={{ flexGrow: "1" }}>
@@ -73,6 +75,15 @@ function Home(props) {
                 </Link>
             </div>
             <Crypto count={10} />
+            <div className="crypto_header">
+                <div>
+                    <Typography variant="h4">Latest Crypto News</Typography>
+                </div>
+                <Link to="/news">
+                    <div>Show More News</div>
+                </Link>
+            </div>
+            <News count={6} />
             {/* <CryptoCard /> */}
         </div>
     );

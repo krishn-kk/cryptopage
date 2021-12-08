@@ -5,6 +5,7 @@ import CryptoCard from "../UtilsComponents/CryptoCard";
 import axios from "axios";
 import { Input } from "@material-ui/core";
 import "./Crypto.css";
+import Spinner from "../UtilsComponents/Spinner";
 
 function Crypto(props) {
     const count = props.count || 100;
@@ -13,7 +14,7 @@ function Crypto(props) {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
     useEffect(() => {
-        let url = createUrl(baseUrl + `/coins?limit=${count}`);
+        let url = createUrl(baseUrl + `/coins?limit=${count}`, "crypto");
         console.log(url);
         axios.request(url).then((response) => {
             console.log(response);
@@ -35,7 +36,7 @@ function Crypto(props) {
         }
     }, [searchTerm]);
     console.log(data?.coins);
-    if (loading) return "...::: Loading";
+    if (loading) return <Spinner />;
     return (
         <div>
             {/* Search Bar */}
