@@ -1,0 +1,22 @@
+.table_content{
+    margin-top: 2vh;
+}
+.header{
+    display: flex;
+    flex-direction: row; 
+   /* justify-content: flex-start; */
+   align-items: center;
+    /* padding-left: 2vw; */
+    /* padding-left: 0.5rem; */
+}
+.table_row{
+    margin-top:0.05rem;
+    /* padding: 2px; */
+    /* background-color: red; */
+    /* margin-bottom:1rem; */
+}
+@media all and (max-width: 700px) {
+    .none{
+        display: none;
+    }
+}
