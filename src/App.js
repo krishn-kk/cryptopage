@@ -7,6 +7,7 @@ import Crypto from "./components/Crypto";
 import { Route, Switch } from "react-router";
 import Exchange from "./components/Exchange";
 import News from "./components/News";
+import CryptoDetails from "./components/CryptoDetails";
 
 function App() {
     return (
@@ -20,6 +21,9 @@ function App() {
                     <Route path="/crypto" exact component={Crypto} />
                     <Route path="/exchange" exact component={Exchange} />
                     <Route path="/news" exact component={News} />
+                    <Route exact path="/crypto/:coinId">
+                        <CryptoDetails />
+                    </Route>
                 </Switch>
             </div>
         </div>

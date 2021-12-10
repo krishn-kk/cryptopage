@@ -77,6 +77,7 @@ function Exchange(props) {
                                 className="table_row"
                                 alignItems="center"
                                 alignContent="center"
+                                style={{ cursor: "pointer" }}
                             >
                                 <Grid
                                     item

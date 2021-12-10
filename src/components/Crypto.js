@@ -6,6 +6,7 @@ import axios from "axios";
 import { Input } from "@material-ui/core";
 import "./Crypto.css";
 import Spinner from "../UtilsComponents/Spinner";
+import { Link } from "react-router-dom";
 
 function Crypto(props) {
     const count = props.count || 100;
@@ -70,7 +71,13 @@ function Crypto(props) {
                             boxShadow: "initial",
                         }}
                     >
-                        <CryptoCard currency={data} />
+                        <Link
+                            key={data.id}
+                            to={`/crypto/${data.id}`}
+                            className="router_link"
+                        >
+                            <CryptoCard currency={data} />
+                        </Link>
                     </Grid>
                 ))}
             </Grid>

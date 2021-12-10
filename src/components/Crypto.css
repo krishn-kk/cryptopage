@@ -9,3 +9,7 @@
     border-radius: 10px; */
     text-align: center;
 }
+.router_link {
+    color: white;
+    text-decoration: none;
+}
