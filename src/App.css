@@ -9,14 +9,31 @@
 .screen {
     width: 78vw;
     margin-left: 1vw;
-   
 }
+.footer {
+  background-color: #001529;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  align-items: center;
+  width: 79.72vw;
+  margin-left: -1vw;
+  padding-bottom: 10vh;
+  padding-top: 10vh;
+  margin-top: 10vh;
+  /* position: fixed; */
+}
+.router_link {
+  color: white;
+  text-decoration: none;
+}
+
 @media all and (max-width: 700px) {
-  .navBar{
-    width: 0vw;
-  }
-  .screen{
-    width: 100vw;
-    /* margin-left: 1vw; */
-  }
+    .navBar {
+        width: 0vw;
+    }
+    .screen,.footer {
+        width: 100vw;
+        /* margin-left: 1vw; */
+    }
 }

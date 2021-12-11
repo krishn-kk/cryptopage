@@ -44,7 +44,7 @@ export default function NewsCard(props) {
     // const { currency } = props;
     const classes = useStyles();
     const news = props.news;
-    console.log(props.news);
+    // console.log(props.news);
     // const news = {
     //     _type: "NewsArticle",
     //     name: "Bitcoin: Self-proclaimed creator wins right to keep $50B BTC fortune he claims to own",

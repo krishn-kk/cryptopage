@@ -9,6 +9,7 @@ import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import "./CryptoDetails.css"
+import Spinner from "../UtilsComponents/Spinner";
 import {
     MoneyCollectOutlined,
     DollarCircleOutlined,
@@ -27,6 +28,7 @@ function CryptoDetails(props) {
     const [cryptoDetails, setData] = useState([]);
     const [coinHistory, setCoinHistory] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [loadingHis, setLoadingHis] = useState(false);
     const [timeperiod, setTimeperiod] = useState("7d");
     useEffect(() => {
         let url = createUrl(baseUrl + `/coin/${coinId}`, "crypto");
@@ -39,16 +41,17 @@ function CryptoDetails(props) {
             baseUrl + `/coin/${coinId}/history/${timeperiod}`,
             "crypto"
         );
+        
         console.log(url);
         axios.request(url).then((response) => {
             console.log(response);
             setCoinHistory(response.data.data);
-            setLoading(true);
+            setLoadingHis(true);
         });
         console.log(coinHistory);
     }, []);
 
-    if (!loading ) return ".....";
+    if (!loading || !loadingHis) return <Spinner/>;
     const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
     const stats = [

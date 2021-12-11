@@ -13,3 +13,8 @@
     color: white;
     text-decoration: none;
 }
+.news_searchbar{
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { AiFillHome } from "react-icons/ai";
 import {
@@ -9,11 +9,32 @@ import {
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import Typography from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router";
 function NavBar(props) {
     const [color, setColor] = useState(0);
     const onClickSetColor = (index) => {
         setColor(index);
     };
+    const param = useLocation();
+    useEffect(() => {
+        switch (param.pathname) {
+            case "/crypto":
+                setColor(1);
+                break;
+            case "/exchange":
+                setColor(2);
+                break;
+            case "/news":
+                setColor(3);
+                break;
+            case "/":
+                setColor(0);
+                break;
+            default:
+                setColor(-1);
+        }
+    }, [param]);
+    console.log("krishn", param);
     return (
         <div className="navbar">
             <div className="header">
