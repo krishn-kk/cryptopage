@@ -8,7 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import "./CryptoDetails.css"
+import "./CryptoDetails.css";
 import Spinner from "../UtilsComponents/Spinner";
 import {
     MoneyCollectOutlined,
@@ -22,6 +22,7 @@ import {
     ThunderboltOutlined,
 } from "@ant-design/icons";
 import { Grid, Typography } from "@material-ui/core";
+import LineChart from "../UtilsComponents/LineChart";
 
 function CryptoDetails(props) {
     const { coinId } = useParams();
@@ -41,17 +42,17 @@ function CryptoDetails(props) {
             baseUrl + `/coin/${coinId}/history/${timeperiod}`,
             "crypto"
         );
-        
+
         console.log(url);
         axios.request(url).then((response) => {
             console.log(response);
-            setCoinHistory(response.data.data);
+            setCoinHistory(response);
             setLoadingHis(true);
         });
         console.log(coinHistory);
-    }, []);
+    }, [timeperiod]);
 
-    if (!loading || !loadingHis) return <Spinner/>;
+    if (!loading || !loadingHis) return <Spinner />;
     const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
     const stats = [
@@ -115,31 +116,49 @@ function CryptoDetails(props) {
     return (
         <div>
             <Grid container className="coin-detail-container">
-                <Grid item xs={12} sm={12} lg={12} className="coin-heading-container">
-                    <Typography level={2} className="coin-name">
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    lg={12}
+                    className="coin-heading-container"
+                >
+                    <Typography  className="coin-name">
                         {cryptoDetails.name} ({cryptoDetails.slug}) Price
                     </Typography>
                     <p>
-                        {cryptoDetails.name} live price in US Dollar (USD). View
+                        {cryptoDetails.name} live price in US Dollar (USD).
+                        <br/> View
                         value statistics, market cap and supply.
                     </p>
                 </Grid>
-                <FormControl>
+                {/* <FormControl>
                     <NativeSelect
                         className="select-timeperiod"
                         placeholder="Select Timeperiod"
                         onChange={(value) => setTimeperiod(value)}
                     >
-                        {/* <option value="">None</option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option> */}
                         {time.map((date) => (
                             <option value={date}>{date}</option>
                         ))}
                     </NativeSelect>
-                    {/* <FormHelperText>With visually hidden label</FormHelperText> */}
-                </FormControl>
+                    <FormHelperText>With visually hidden label</FormHelperText>
+                </FormControl> */}
+                {/* <LineChart
+                    coinHistory={coinHistory}
+                    currentPrice={millify(cryptoDetails.price)}
+                    coinName={cryptoDetails.name}
+                /> */}
+                Comming Soon, .....................................
+
+                
+                
+                <br/> 
+                <br/>
+                <br/> 
+                Thanks, <br/> drop a mail to @ krishn877@gmail.com for suggestion 
+                <br/>
+                Cheers !!!!
             </Grid>
         </div>
     );

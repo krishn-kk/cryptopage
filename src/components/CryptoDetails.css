@@ -1,5 +1,5 @@
 .coin-name{
-    font-weight: 900;
+    /* font-weight: 00; */
     /* color: var(--pink); */
 }
 .select-timeperiod{
@@ -7,7 +7,7 @@
     margin-top: 20px !important;
 }
 .coin-detail-container{
-    margin: 30px;
+    /* margin: 30px; */
 }
 @media screen and (max-width: 500px){
     .coin-links{
