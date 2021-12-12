@@ -50,9 +50,7 @@ export const MenuItem = ({ row }) => {
                 setColor(-1);
         }
     }, [param]);
-    console.log("krishn", param);
 
-    // console.log(stlyle);
     return (
         <div className={`menu ${row ? "row" : ""}`}>
             <Link to="/" className="router_link">

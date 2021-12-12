@@ -27,9 +27,7 @@ function Exchange(props) {
     };
     useEffect(() => {
         let url = createUrl(baseUrl + "/exchanges", "crypto");
-        console.log(url);
         axios.request(url).then((response) => {
-            console.log(response);
             setExchange(response.data.data.exchanges);
             setLoading(false);
         });

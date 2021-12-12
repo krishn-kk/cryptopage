@@ -33,7 +33,6 @@ function CryptoDetails(props) {
     const [timeperiod, setTimeperiod] = useState("7d");
     useEffect(() => {
         let url = createUrl(baseUrl + `/coin/${coinId}`, "crypto");
-        console.log(url);
         axios.request(url).then((response) => {
             setData(response.data.data.coin);
             setLoading(true);
@@ -43,13 +42,10 @@ function CryptoDetails(props) {
             "crypto"
         );
 
-        console.log(url);
         axios.request(url).then((response) => {
-            console.log(response);
             setCoinHistory(response);
             setLoadingHis(true);
         });
-        console.log(coinHistory);
     }, [timeperiod]);
 
     if (!loading || !loadingHis) return <Spinner />;
@@ -112,7 +108,6 @@ function CryptoDetails(props) {
             icon: <ExclamationCircleOutlined />,
         },
     ];
-    console.log(cryptoDetails);
     return (
         <div>
             <Grid container className="coin-detail-container">

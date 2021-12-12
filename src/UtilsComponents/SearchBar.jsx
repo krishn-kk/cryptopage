@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 export default function SearchBar(props) {
     const classes = useStyles();
     const [value, setValue] = useState("");
-    console.log(props);
     if(!props.options || !props.setValue)
     return "...";
     return (

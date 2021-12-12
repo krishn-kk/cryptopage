@@ -16,14 +16,11 @@ function Home(props) {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         let url = createUrl(baseUrl + "/stats", "crypto");
-        console.log(url);
         axios.request(url).then((response) => {
-            console.log(response);
             setData(response.data.data);
             setLoading(false);
         });
     }, []);
-    console.log(data);
     if (loading) return <Spinner />;
     return (
         <div style={{ display: "flex", flexDirection: "column" }}>
