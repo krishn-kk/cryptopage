@@ -1,30 +1,30 @@
-                                       Crypto Info Website
+  #                               Crypto Info Website
    ____________________________________________________________________________________________________
 
-        Link to website [link](https://crypinfo-9f26c.firebaseapp.com/)
-        ![image](https://user-images.githubusercontent.com/79524859/145721404-503b477d-43fe-4331-9461-fc4339e35782.png)
+##                    Link to website : [link](https://crypinfo-9f26c.firebaseapp.com/)
+![image](https://user-images.githubusercontent.com/79524859/145721404-503b477d-43fe-4331-9461-fc4339e35782.png)
        
-       Key Points :
-       * User able to get the total stats Global crypto 
-       * User Can see top 10 crypto in the world and also other 100 crypto details at the same time with search functionalities 
-       * Each Details is available in form of graph ( Days, Year, Month wise ) with max high min low.
-       * User Able to see crypto News and also search related all crypto news 
+#### Key Points :
+    * User able to get the total stats Global crypto 
+    * User Can see top 10 crypto in the world and also other 100 crypto details at the same time with search functionalities 
+    * Each Details is available in form of graph ( Days, Year, Month wise ) with max high min low.
+    * User Able to see crypto News and also search related all crypto news 
        
-       Feature scopr :
-       * User Authentication -> Add crypto card to favourite and see the all details
-       
-       Please find the below Screenshots
-        ![image](https://user-images.githubusercontent.com/79524859/145721787-284fe703-583e-4c62-8ffd-2b158a83cffb.png)
+##### Feature scope :
+* User Authentication -> Add crypto card to favourite and see the all details
 
-        ![image](https://user-images.githubusercontent.com/79524859/145721662-38853cd6-d32b-4fdf-ae2e-f4741daf1be7.png)
+Please find the below Screenshots
+![image](https://user-images.githubusercontent.com/79524859/145721787-284fe703-583e-4c62-8ffd-2b158a83cffb.png)
+
+![image](https://user-images.githubusercontent.com/79524859/145721662-38853cd6-d32b-4fdf-ae2e-f4741daf1be7.png)
        
-        ![image](https://user-images.githubusercontent.com/79524859/145721676-e4258c57-e61c-4c9c-a35a-32767b8a405b.png)
+![image](https://user-images.githubusercontent.com/79524859/145721676-e4258c57-e61c-4c9c-a35a-32767b8a405b.png)
         
-        ![image](https://user-images.githubusercontent.com/79524859/145721687-45f6c7a7-5193-4c48-94f8-3ac874077343.png)
+![image](https://user-images.githubusercontent.com/79524859/145721687-45f6c7a7-5193-4c48-94f8-3ac874077343.png)
         
 
       
-       Please drop a mail to @ krishn877@gmail.com for improvment and anything else. 
+Please drop a mail to @ krishn877@gmail.com for improvment and anything else. 
 
 
 # Getting Started with Create React App
