@@ -16,16 +16,13 @@ function Crypto(props) {
     const [searchTerm, setSearchTerm] = useState("");
     useEffect(() => {
         let url = createUrl(baseUrl + `/coins?limit=${count}`, "crypto");
-        console.log(url);
         axios.request(url).then((response) => {
-            console.log(response);
             setData(response.data.data);
             setMasterData(response.data.data);
             setLoading(false);
         });
     }, []);
     useEffect(() => {
-        console.log(data?.coins);
         let filterdData;
         {
             filterdData = masterData?.coins
@@ -36,7 +33,6 @@ function Crypto(props) {
             filterdData && setData({ coins: filterdData });
         }
     }, [searchTerm]);
-    console.log(data?.coins);
     if (loading) return <Spinner />;
     return (
         <div>

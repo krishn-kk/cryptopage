@@ -19,10 +19,8 @@ function News(props) {
     useEffect(() => {
         setLoadingCat(true);
         let url = createUrl(baseUrl + `/coins?limit=${100}`, "crypto");
-        console.log(url);
         axios.request(url).then((response) => {
             setData(response.data.data.coins);
-            console.log(response.data.data);
             setLoadingCat(false);
         });
     }, []);
@@ -33,18 +31,13 @@ function News(props) {
                 `?q=${category}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`,
             "news"
         );
-        console.log(url);
         axios.request(url).then((response) => {
-            console.log(response.data);
             setNews(response.data);
             setLoading(false);
         });
     }, [category]);
-    // console.log(news?.value);
     if (loading || loadingCat) return <Spinner />;
     let options = data.map((data) => data.name);
-    // console.log(options);
-    // console.log(data);
     const setValue = (value) => setCategory(value);
 
     return (
