@@ -1,3 +1,21 @@
+                                       Crypto Info Websit 
+   ____________________________________________________________________________________________________
+
+        Link to website : https://crypinfo-9f26c.firebaseapp.com/
+        ![image](https://user-images.githubusercontent.com/79524859/145721404-503b477d-43fe-4331-9461-fc4339e35782.png)
+       
+       Key Points :
+       * User able to get the total stats Global crypto 
+       * User Can see top 10 crypto in the world and also other 100 crypto details at the same time with search functionalities 
+       * Each Details is available in form of graph ( Days, Year, Month wise ) with max high min low.
+       * User Able to see crypto News and also search related all crypto news 
+       
+       Feature scopr :
+       * User Authentication -> Add crypto card to favourite and see the all details
+
+       Please drop a mail to @ krishn877@gmail.com for improvment and anything else. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
