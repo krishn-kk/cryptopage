@@ -60,17 +60,16 @@
     color: white;
     text-decoration: none;
 }
+.row{
+    display: flex;
+}
 @media all and (max-width: 700px) {
     .menu_title,
     .header_title {
         display: none;
         width: 0vw;
     }
-    .navbar,
-    .break,
-    .menu_title,
-    .menu,
-    .menu_item {
+    .navbar {
         display: none;
         width: 0vw;
     }

@@ -9,14 +9,24 @@ import Exchange from "./components/Exchange";
 import News from "./components/News";
 import CryptoDetails from "./components/CryptoDetails";
 import SearchBar from "./UtilsComponents/SearchBar";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, IconButton, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { MenuItem } from "./components/NavBar";
+import { useState } from "react";
 
 function App() {
+    const [menu, setMenu] = useState(false);
     return (
         <div className="App">
             <div className="navBar">
                 <NavBar />
+            </div>
+            <div className="mobile">
+                <div>CrypInfo</div>
+                {/* <button></button> */}
+                <div>
+                    <MenuItem row />
+                </div>
             </div>
             <div className="screen">
                 <Switch>
@@ -41,25 +51,24 @@ function App() {
                     <Grid
                         container
                         direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        alignContent="center"
+                        justifyContent="center"
+                        style={{ padding: "1vw" }}
                     >
-                        <Grid item xs={4} sm={4} lg={4}>
+                        <span style={{ marginLeft: "1vw" }}>
                             <Link to="/" className="router_link">
                                 Home
                             </Link>
-                        </Grid>
-                        <Grid item xs={4} sm={4} lg={4}>
+                        </span>
+                        <span style={{ marginLeft: "1vw" }}>
                             <Link to="/exchange" className="router_link">
                                 Exchanges
                             </Link>
-                        </Grid>
-                        <Grid item xs={4} sm={4} lg={4}>
+                        </span>
+                        <span style={{ marginLeft: "1vw" }}>
                             <Link to="/news" className="router_link">
                                 News
                             </Link>
-                        </Grid>
+                        </span>
                     </Grid>
                 </div>
             </div>
