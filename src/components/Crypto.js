@@ -62,8 +62,8 @@ function Crypto(props) {
                         lg={3}
                         item
                         style={{
-                            width: "10vw",
-                            height: "40vh",
+                            // width: "10vw",
+                            // height: "40vh",
                             boxShadow: "initial",
                         }}
                     >
