@@ -28,18 +28,26 @@ Chart.register(
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     const coinPrice = [];
     const coinTimestamp = [];
-    console.log(coinHistory);
+    let indexedTime = [];
+    let set = new Set();
+    // for (let i = 0; i < coinHistory?.data?.data?.history?.length; i += 1) {
+    //     coinPrice.push(coinHistory?.data?.data?.history[i].price);
+    // }
 
     for (let i = 0; i < coinHistory?.data?.data?.history?.length; i += 1) {
-        coinPrice.push(coinHistory?.data?.data?.history[i].price);
-    }
-
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-        coinTimestamp.push(
-            new Date(
-                coinHistory?.data?.data?.history[i].timestamp
-            ).toLocaleDateString()
-        );
+        let date = new Date(
+            coinHistory?.data?.data?.history[i].timestamp
+        ).toLocaleDateString();
+        if (set.has(date) === false) {
+            coinTimestamp.push(date);
+            coinPrice.push(coinHistory?.data?.data?.history[i].price);
+            set.add(date);
+        }
+        // coinTimestamp.push(
+        //     new Date(
+        //         coinHistory?.data?.data?.history[i].timestamp
+        //     ).toLocaleDateString()
+        // );
     }
 
     const data = {
@@ -54,37 +62,27 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
             },
         ],
     };
-
-    const options = {
+    console.log(data);
+    const options ={
         scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
+            x: {
+            },
+
+            y: {
+                ticks: {
+                    beginAtZero: true,
                 },
-            ],
+            },
         },
     };
-    console.log("line chart");
     if (!coinHistory) return "...";
-    console.log(data,options);
     return (
         <>
-            <Grid className="chart-header">
-                <Typography className="chart-title">
-                    {coinName} Price Chart{" "}
-                </Typography>
-                <Grid className="price-container" item>
-                    <Typography level={5} className="price-change">
-                        Change: {coinHistory?.data?.change}%
-                    </Typography>
-                    <Typography level={5} className="current-price">
-                        Current {coinName} Price: $ {currentPrice}
-                    </Typography>
-                </Grid>
-            </Grid>
-            <Line data={data} options={options} />
+            
+            <Line
+                data={data}
+                options={options}
+            />
         </>
     );
 };

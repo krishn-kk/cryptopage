@@ -23,7 +23,6 @@ function App() {
             </div>
             <div className="mobile">
                 <div>CrypInfo</div>
-                {/* <button></button> */}
                 <div>
                     <MenuItem row />
                 </div>

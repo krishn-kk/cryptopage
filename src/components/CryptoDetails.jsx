@@ -23,6 +23,7 @@ import {
 } from "@ant-design/icons";
 import { Grid, Typography } from "@material-ui/core";
 import LineChart from "../UtilsComponents/LineChart";
+import HTMLReactParser from "html-react-parser";
 
 function CryptoDetails(props) {
     const { coinId } = useParams();
@@ -49,7 +50,7 @@ function CryptoDetails(props) {
     }, [timeperiod]);
 
     if (!loading || !loadingHis) return <Spinner />;
-    const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+    const time = ["24h", "7d", "30d", "1y", "5y"];
 
     const stats = [
         {
@@ -117,43 +118,150 @@ function CryptoDetails(props) {
                     sm={12}
                     lg={12}
                     className="coin-heading-container"
+                    justifyContent="center"
+                    alignContent="center"
                 >
-                    <Typography  className="coin-name">
+                    <Typography className="coin-name">
                         {cryptoDetails.name} ({cryptoDetails.slug}) Price
                     </Typography>
                     <p>
                         {cryptoDetails.name} live price in US Dollar (USD).
-                        <br/> View
-                        value statistics, market cap and supply.
+                        <br /> View value statistics, market cap and supply.
                     </p>
                 </Grid>
-                {/* <FormControl>
-                    <NativeSelect
-                        className="select-timeperiod"
-                        placeholder="Select Timeperiod"
-                        onChange={(value) => setTimeperiod(value)}
+                <Grid>
+                    <FormControl>
+                        <NativeSelect
+                            className="select-timeperiod"
+                            placeholder="Select Timeperiod"
+                            onChange={(event) => {
+                                // console.log(value.target.value);
+                                setTimeperiod(event.target.value);
+                            }}
+                            defaultValue={"7d"}
+                            defaultChecked
+                        >
+                            {time.map((date) => (
+                                <option value={date}>{date}</option>
+                            ))}
+                        </NativeSelect>
+                    </FormControl>
+                </Grid>
+                <Grid item container xs={12} lg={12} sm={12}>
+                    <Grid className="chart-header" item lg={4} xs={12} sm={12}>
+                        <Typography className="chart-title">
+                            {cryptoDetails.name} Price Chart{" "}
+                            {""}
+                        </Typography>
+                    </Grid>
+                    
+                    <Grid
+                        className="price-container"
+                        item
+                        container
+                        lg={8}
+                        sm={12}
+                        xs={12}
+                        justifyContent="flex-end"
                     >
-                        {time.map((date) => (
-                            <option value={date}>{date}</option>
-                        ))}
-                    </NativeSelect>
-                    <FormHelperText>With visually hidden label</FormHelperText>
-                </FormControl> */}
-                {/* <LineChart
-                    coinHistory={coinHistory}
-                    currentPrice={millify(cryptoDetails.price)}
-                    coinName={cryptoDetails.name}
-                /> */}
-                Comming Soon, .....................................
+                        <Typography level={5} className="price-change">
+                            {coinHistory?.data?.data?.change}%
+                        </Typography>
 
-                
-                
-                <br/> 
-                <br/>
-                <br/> 
-                Thanks, <br/> drop a mail to @ krishn877@gmail.com for suggestion 
-                <br/>
-                Cheers !!!!
+                        <Typography level={5} className="current-price">
+                            Current {cryptoDetails.name} Price: $
+                            {millify(cryptoDetails.price)}
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} lg={12} sm={12}>
+                    {" "}
+                    <LineChart
+                        coinHistory={coinHistory}
+                        currentPrice={millify(cryptoDetails.price)}
+                        coinName={cryptoDetails.name}
+                    />
+                </Grid>
+                <Grid container />
+                <Grid container item justifyContent="space-around" >
+                    <Grid lg={4} xs={12} sm={12} item container className="coin-value-statistics">
+                        <Grid item className="coin-value-statistics-heading">
+                            <Typography className="coin-details-heading">
+                                {`An overview showing the status of ${cryptoDetails.name}`}{" "}
+                            </Typography>
+                        </Grid>
+                        {stats.map(({ title, value, icon }) => {
+                            return (
+                                <Grid container justifyContent="space-between" className="coin-stats">
+                                    <Grid className="coin-stats-name">
+                                        {icon} {""} {title}
+                                    </Grid>
+                                    <Grid className="stats">{value}</Grid>
+                                </Grid>
+                            );
+                        })}
+                    </Grid>
+                    <Grid lg={1} />
+                    <Grid lg={4} xs={12} sm={12} item container className="other-stats-info">
+                        <Grid item  className="coin-value-statistics-heading">
+                            <Typography className="coin-details-heading">
+                                {`An overview showing the status of All cryptocurrencies`}
+                            </Typography>
+                        </Grid>
+                        {stats.map(({ title, value, icon }) => {
+                            return (
+                                <Grid container justifyContent="space-between" className="coin-stats">
+                                    <Grid className="coin-stats-name">
+                                        {icon} {""} {title}
+                                    </Grid>
+                                    <Grid className="stats">{value}</Grid>
+                                </Grid>
+                            );
+                        })}
+                    </Grid>
+                </Grid>
+                <Grid container item className="coin-desc-link">
+                    <Grid lg={12} xs={12} sm={12} items className="coin-desc">
+                        <Grid  className="coin-details-heading">
+                            <Typography>
+                                {`What is ${cryptoDetails.name}`}
+                            </Typography>
+                        </Grid>
+                        <Grid>
+                            {HTMLReactParser(cryptoDetails.description)}
+                        </Grid>
+                    </Grid>
+                    <Grid lg={3} />
+                    {/* <Grid lg={12} xs={12} sm={12} item className="coin-links">
+                        <Grid className="coin-details-heading">
+                            <Typography>
+                                {`${cryptoDetails.name} Links`}
+                            </Typography>
+                        </Grid>
+                        {cryptoDetails.links?.map((link) => (
+                            <Grid container  justifyContent="space-around" className="coin-links">
+                                
+                                <Grid >
+                                    <Typography level={5} className="link-name">
+                                        {link.type}
+                                    </Typography>
+                                </Grid>
+                                <Grid>
+                                    <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </Grid>
+                            </Grid>
+                        ))}
+                        <Grid>
+                            {HTMLReactParser(cryptoDetails.description)}
+                        </Grid>
+                    </Grid> */}
+                </Grid>
             </Grid>
         </div>
     );
