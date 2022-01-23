@@ -68,8 +68,8 @@ function Crypto(props) {
                         }}
                     >
                         <Link
-                            key={data.id}
-                            to={`/crypto/${data.id}`}
+                            key={data.uuid}
+                            to={`/crypto/${data.uuid}`}
                             className="router_link"
                         >
                             <CryptoCard currency={data} />

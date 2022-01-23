@@ -30,24 +30,16 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     const coinTimestamp = [];
     let indexedTime = [];
     let set = new Set();
-    // for (let i = 0; i < coinHistory?.data?.data?.history?.length; i += 1) {
-    //     coinPrice.push(coinHistory?.data?.data?.history[i].price);
-    // }
+    
 
     for (let i = 0; i < coinHistory?.data?.data?.history?.length; i += 1) {
-        let date = new Date(
-            coinHistory?.data?.data?.history[i].timestamp
-        ).toLocaleDateString();
-        if (set.has(date) === false) {
-            coinTimestamp.push(date);
-            coinPrice.push(coinHistory?.data?.data?.history[i].price);
-            set.add(date);
-        }
-        // coinTimestamp.push(
-        //     new Date(
-        //         coinHistory?.data?.data?.history[i].timestamp
-        //     ).toLocaleDateString()
-        // );
+        
+        coinPrice.push(coinHistory?.data?.data?.history[i].price);
+        coinTimestamp.push(
+            new Date(
+                coinHistory?.data?.data?.history[i].timestamp
+            ).toLocaleDateString()
+        );
     }
 
     const data = {
@@ -62,7 +54,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
             },
         ],
     };
-    console.log(data);
+    
     const options ={
         scales: {
             x: {

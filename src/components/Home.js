@@ -18,6 +18,7 @@ function Home(props) {
         let url = createUrl(baseUrl + "/stats", "crypto");
         axios.request(url).then((response) => {
             setData(response.data.data);
+            console.log(response.data.data);
             setLoading(false);
         });
     }, []);

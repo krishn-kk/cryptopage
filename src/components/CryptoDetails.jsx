@@ -32,19 +32,22 @@ function CryptoDetails(props) {
     const [loading, setLoading] = useState(false);
     const [loadingHis, setLoadingHis] = useState(false);
     const [timeperiod, setTimeperiod] = useState("7d");
+    console.log(coinId);
     useEffect(() => {
         let url = createUrl(baseUrl + `/coin/${coinId}`, "crypto");
         axios.request(url).then((response) => {
             setData(response.data.data.coin);
+            console.log(response.data.data.coin)
             setLoading(true);
         });
         url = createUrl(
-            baseUrl + `/coin/${coinId}/history/${timeperiod}`,
+            baseUrl + `/coin/${coinId}/history?${timeperiod}`,
             "crypto"
         );
 
         axios.request(url).then((response) => {
             setCoinHistory(response);
+            console.log(response);
             setLoadingHis(true);
         });
     }, [timeperiod]);
@@ -100,12 +103,12 @@ function CryptoDetails(props) {
         },
         {
             title: "Total Supply",
-            value: `$ ${millify(cryptoDetails.totalSupply)}`,
+            value: `$ ${millify(cryptoDetails.supply.total)}`,
             icon: <ExclamationCircleOutlined />,
         },
         {
             title: "Circulating Supply",
-            value: `$ ${millify(cryptoDetails.circulatingSupply)}`,
+            value: `$ ${millify(cryptoDetails.supply.circulating)}`,
             icon: <ExclamationCircleOutlined />,
         },
     ];
